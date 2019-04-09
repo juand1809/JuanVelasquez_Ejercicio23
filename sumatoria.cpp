@@ -44,7 +44,6 @@ double lee_y_suma (string filename)
   suma = 0.0;
   getline(infile, line);
   while(infile){
-    contador++;
     for (int i=0;i<contador;i++){
       lista[i] = atof(line.c_str());
       suma += lista[i];
