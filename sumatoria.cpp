@@ -26,18 +26,32 @@ int main()
 
 double lee_y_suma (string filename)
 {
+  double* lista = NULL;
   double suma,num;  
   ifstream infile;
   string line;
-  infile.open(filename); 
+  infile.open(filename);
+  int contador;
   
+    
   getline(infile, line);
-  suma = 0.0;  
   while(infile){
-    num = atof(line.c_str());
-    suma += num;
+      contador++;
+      getline(infile, line);
+  }
+    
+  lista = new double[contador];
+  suma = 0.0;
+  getline(infile, line);
+  while(infile){
+    contador++;
+    for (int i=0;i<contador;i++){
+      lista[i] = atof(line.c_str());
+      suma += lista[i];
+    }
     getline(infile, line);
   }
   infile.close();
+    
   return suma;
 }
